@@ -1,0 +1,175 @@
+1)Admin
+--------
+
+
+create table admin(
+id int primary key auto_increment,
+first_name varchar(20) not null,
+last_name varchar(20) not null,
+email varchar(20) unique,
+password varchar(20) not null,
+contact_no varchar(15) not null);
+
+
+insert into admin
+values(default,'nilesh','verma','nilesh@gmail.com',1234,'9096501073');
+
+insert into admin
+values(default,'swati','shah','swati@gmail.com',1567,'9096501453');
+
+
+2) patients
+ -------------  
+
+create table patients(
+
+patient_id int(5) primary key auto_increment,
+firstname varchar(20) NOT NULL,
+lastname varchar(20) NOT NULL,
+email varchar(20) unique NOT NULL,
+password varchar(20)NOT NULL,
+dob date NOT NULL,
+address varchar(50) NOT NULL,
+phone varchar(12) NOT NULL,
+gender varchar(10) NOT NULL
+);
+
+insert into patients values(default,'aman','sharma','aman@gmail.com','123','1997-11-12','nagpur','88899966','MALE');
+insert into patients values(default,'suman','verma','suman@gmail.com','133','1995-10-02','nagpur','77899966','FEMALE');
+insert into patients values(default,'anita','khandelwal','anita@gmail.com','1122','1988-07-12','nagpur','88800966','FEMALE');
+insert into patients values(default,'aditi','singh','aditi@gmail.com','2233','1998-11-18','nagpur','6229966','FEMALE');
+insert into patients values(default,'aakash','verma','aakash@gmail.com','0512','1995-06-13','nagpur','88899966','MALE');
+insert into patients values(default,'saurabh','agrwal','sau@gmail.com','1212','2000-04-12','nagpur','88899966','MALE');
+
+ 
+3) doctor_specialization
+  -----------------------
+
+
+create table specializations(
+spec_id int(5) primary key auto_increment,
+name varchar(20) NOT NULL
+);
+
+insert into specializations values(default,'NEUROLOGIST');
+insert into specializations values(default,'CARDIOLOGIST');
+insert into specializations values(default,'DERMATOLOGY');
+insert into specializations values(default,'PATHOLOGY');
+
+
+4)doctor
+ --------
+
+create table doctors(
+doctor_id int(5) primary key auto_increment,
+firstname varchar(20) NOT NULL,
+lastname varchar(20) NOT NULL,
+email varchar(20) unique NOT NULL,
+password varchar(20)NOT NULL,
+dob date NOT NULL,
+address varchar(50) NOT NULL,
+phone varchar(12) NOT NULL,
+gender varchar(10) NOT NULL,
+fees double(8,2) NOT NULL,
+specialization_id int(5) ,
+FOREIGN KEY(specialization_id) REFERENCES specializations(spec_id) 
+);
+
+
+insert into doctors values(default,'jeevesh','sharma','jeevesh@gmail.com','123','1997-11-12','nagpur','88899966','MALE',200,1);
+insert into doctors values(default,'babita','jain','babita@gmail.com','133','1995-10-02','nagpur','77899966','FEMALE',250,2);
+insert into doctors values(default,'ronak','ray','ronak@gmail.com','1122','1988-07-12','nagpur','88800966','FEMALE',100,3);
+insert into doctors values(default,'rahul','rastogi','rahul@gmail.com','14423','1991-11-12','nagpur','833899966','MALE',200,4);
+insert into doctors values(default,'sana','khan','sana@gmail.com','1333','1989-11-22','nagpur','778923266','FEMALE',250,2);
+insert into doctors values(default,'rubina','kashyap','rubina@gmail.com','11252','1987-08-12','nagpur','882400966','FEMALE',100,2);
+insert into doctors values(default,'amit','joshi','amit@gmail.com','1253','1985-11-12','nagpur','8878889966','MALE',200,1);
+
+5)doctor_availability
+---------------------
+
+create table doctor_availability(
+id int(6) primary key auto_increment,
+doctor_id int(5) NOT NULL,
+day_in_week varchar(15),
+starting_time time,
+ending_time time,
+open_for_day varchar(1),
+minutes_for_patient int,
+FOREIGN KEY(doctor_id) REFERENCES  doctors(doctor_id));
+
+
+insert into doctor_availability values(default,1,'MONDAY','09:00:00','05:00:00','Y',30);
+insert into doctor_availability values(default,1,'TUESDAY','09:00:00','05:00:00','Y',30);
+insert into doctor_availability values(default,2,'MONDAY','09:00:00','05:00:00','Y',30);
+insert into doctor_availability values(default,2,'TUESDAY','09:00:00','05:00:00','Y',30);
+insert into doctor_availability values(default,3,'FRIDAY','09:00:00','05:00:00','Y',30);
+insert into doctor_availability values(default,3,'SATURDAY','09:00:00','05:00:00','Y',30);
+
+
+6)appointments
+--------------
+
+create table appointment(
+appointment_id int(5) primary key auto_increment,
+patient_id int,
+doctor_id int,
+appointment_status_id int,
+starttime time,
+appointment_date date,
+FOREIGN KEY(patient_id) REFERENCES  patients(patient_id),
+FOREIGN KEY(doctor_id) REFERENCES  doctors(doctor_id),
+FOREIGN KEY(appointment_status_id) REFERENCES  appointment_status(appointment_status_id));
+
+insert into appointment values(default,1,1,2,'10:00:00','2020-11-27');
+insert into appointment values(default,2,1,2,'11:00:00','2020-11-29');
+insert into appointment values(default,3,2,2,'10:00:00','2020-11-28');
+insert into appointment values(default,4,3,2,'01:00:00','2020-11-27');
+insert into appointment values(default,5,2,2,'03:00:00','2020-11-25');
+insert into appointment values(default,6,5,2,'10:00:00','2020-11-28');
+
+
+
+7)appointment_status
+--------------
+create table appointment_status(
+appointment_status_id int(5) primary key auto_increment,
+status varchar(15));
+
+insert into appointment_status values(default,'ACTIVE');
+insert into appointment_status values(default,'CONFIRM');
+insert into appointment_status values(default,'CANCEL');
+
+
+
+8)feedbacks
+
+create table feedbacks(
+ id  int(5) primary key auto_increment,
+ appointment_id int(5),
+ msg varchar(100)
+ FOREIGN KEY( appointment_id) REFERENCES   appointment( appointment_id)
+);
+
+
+9)payment
+----------
+
+ create table payment(
+ paymentid int primary key auto_increment,
+ card_no varchar(16) not null,
+ paymentdatetime  datetime not null,
+ amount double(10,2) ,
+ appointment_id int(5),
+ FOREIGN KEY( appointment_id) REFERENCES  appointment( appointment_id)
+);
+
+
+10)credit card
+--------------
+create table card_type(
+card_no varchar(16) primary key,
+expiry_date date not null,
+security_code varchar(25),
+cardtype  varchar(25)
+);
+

@@ -1,0 +1,133 @@
+1. Introduction
+
+1.1 Purpose:
+
+  Online Doctor Appointment is a smart web application, this provides aregistration and login for both doctors and patients. Doctors canregister by giving his necessary details like timings, fee, etc. Aftersuccessful registration, the doctor can log in by giving username andpassword. The doctor can view the booking request by patients and ifhe accepts the patient requests the status will be shown as bookingconfirmed to the patient. He can also view the feedback given by thepatient. The patients must be registered and log in to book a doctor.The search results will show the list of doctors matching patients required criteria and he can select one and send a request the requestwill be forwarded to admin and admin forward to doctor and if he isavailable he will send the confirmation request back to admin theadmin update the booking request and says confirmed to the patient.The patient can view the status in the status tab and also he will get themail saying the booking is Confirmed
+
+1.2 Scope:
+
+
+1.3 Definitions:
+
+
+ORDS  -Online Doctor Appointment system
+ERD   -Entity Relationship Diagram
+DBD    -Database Diagram
+DFD    -Data Flow Diagram
+IT     -Information technology
+HTTP   -Hyper Text Transfer Protocol
+SQL    -Structure Query Language
+DBMS   - Database Management System
+IDE    -Integrated Development Environment
+
+1.4 overview 
+   This system helps to reduce the waiting time of the patient.
+   User can select the appointment time according to his preference.
+
+
+1.5 General Description:
+    The proposed project is a smart appointment booking system that provides patients or any user an easy way of booking a doctor’s appointment online. This is a web based application that overcomes the issue of managing and booking appointments according to user’s choice or demands.
+--objective:
+  In the proposed system the doctors patients are brought to one platform will allow patients to be more flexible they can register and search for the doctors basing on the location the list of doctors will be shown and patient can book by selecting  the time slots and the admin will confirm the booking so everything is computerized an done very fast which will save time.
+
+1.6 Functional Requirement:
+	This section provides requirement overview of the system. Various functional modules that         can be implemented by the system will be-
+	
+	Description:
+       1)Admin needs to login with username and password and in the admin home screen, he can see        the basic functionalities of admin. Admin can view the registered doctors and patients. He        can also view the patient’s request and doctors requests and he will confirm the patients         and doctors requests.
+       2)Doctor need to be registered by giving the necessary details like experience, timing,        fees etc. After registering he need to log in and in the home screen he can view the basic        functionalities. He can view the patient request forwarded from admin and he can accept          and he can also view the feedback given by patients.
+       3)The patient needs to be registered and log in after logging on he can search for the             doctor by giving the location, the reason or problem. Basing on the doctor availability          the  admin will confirm the booking request and will send to mail that the booking                is confirmed  he can also view in the status and he can also give feedback basing the          performance of the doctor.
+
+1.7 Technical Issues:
+	This system will work on client-Server architecture. It will require an internet server.
+	The system should support some commonly used browser such as Chrome etc.
+    Interface Requirement Various interfaces for the patient could be 
+	1.Login Page, 
+	2.Registration form
+  The patient may select the different options which will be open in another screen as
+       1)Home Page
+       2)Patient registration Page
+       3)Patient login Page
+       4)Patient home Page
+       5)View status Page
+       6)Feedback Page
+1.8 Hardware Interface:
+	The System must run over the internet,
+        All the hardware shall require to connect to internet will be hardware interface for the         system.
+       e.g. modem,  WAN, LAN
+   Specialized Server Infrastructure Hardware
+        The system should use distrubuted servers i.e cloud for managing large amount of data so         as to make it appear as single unit for end-user.
+        The system should have proper clusters for backup.
+		
+1.9 Software Interface:
+	The system is on server so it requires the any scripting language like JSP or  PHP or         ASP, ETC.
+        The system should be able to exchange data using XML, JASON or any advance technology.
+	The system require DataBase also for the store the any transaction of the system like        MySql or oracle, or SQL server etc.
+	System also require DNS (Domain Name space) for the naming on the internet.
+	http://www.transflower.in
+	http://www.amazon.in
+        At the end-user need web browser for interact with the system.
+
+
+1.10 Performance Requirement:
+	There is no  performance requirement in this system, because the server request  and respone to client is totally based on internet connection of enduser.
+
+1.11 Design Constrains:
+	This system should be developed using  Standard Web Page Development Tool , which conforms GUI standards such like HTML, XML, JSON,etc.
+        The system should support various RDMS and Cloud Technologies.
+
+1.12 Non-Functional Requirements
+
+1.Security:
+	  SSL
+	The System use SSL (Secure Socket Layer) in all trancations that include any confidential customer information.
+	The system must automcatically log out all customers after a period of inactivity.
+	The system should not leave any cookies on the customer's computer containing users's password.
+	The system's back-end servers shall  only be accessible to authenticated administrators.
+	Sensitive data will be encrypted  before being sent onver insecure connections like internet.
+        The proper firewalls should be developed to avoid intrusions from the internal or external sources.
+
+
+2.Reliability:
+	The system provides storage of all databases on redundant computers with  automatic switchover. 
+	The main pillar of reliability of the system  is the backup of the database 
+	which is conitinously maintained and update to reflect  the most recenet changes.
+
+
+3: Availability:
+	The system should be available at all times.meaning the user can access it using web browser, 
+        only restricted by the down time of the server on which the system runs.
+        In case of a of a hardware failure or database corruption, a replacement page will be shown. 
+	uptime : It mean 24 * 7 availability
+	100%--------------
+	99.9%
+	99.999%
+	99.9999%
+
+
+4: Maintainability:
+	A commercial database is used for maintaining the databae and application server takes care of the site. 
+	The maintainability can be done efficiently
+5.Portability:
+	The application is HTML and scripting language based (Javascript). So the end user part is fully portable and any system using 
+	any web browser should be able to use the features of the system,including any hardware platform that is available 
+	or will be available in the futuer. 
+	An end-user  is used this system on an OS;either it is Windows or Linux.
+	The System shall run on PC, Laptops and PDA.etc.
+	The  technology should be transferable to different environments easily.
+
+6.Accessibility:
+        Only registered users should be allowed to process the orders after authentications.
+7.Policies:
+       The system should adhere to all the legal formalities of the particular countries.
+       The system should maintain security related to sensitive data.
+
+8.Efficiency:
+	The system should provide good throughput and response to multiple users without burdening the system by using appropriate number of servers.
+
+9.Safety:
+      Software should not harm ethical and environmental conditions of the end users machine.
+
+10.Modulariy:
+      The system should have user friendly interface. 
+      It should be easily updated,modified and reused. 
